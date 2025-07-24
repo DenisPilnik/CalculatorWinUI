@@ -10,10 +10,21 @@
     Title="CalculatorWinUI">
 
     <Window.SystemBackdrop>
-        <MicaBackdrop />
+        <MicaBackdrop Kind="Base"/>
     </Window.SystemBackdrop>
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <!-- Title Bar -->
+            <RowDefinition Height="Auto" />
+            <!-- App Content -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TitleBar x:Name="AppTitleBar"
+              Title="Calculator">
+            <TitleBar.IconSource>
+                <FontIconSource Glyph="&#xE8EF;"/>
+            </TitleBar.IconSource>
+        </TitleBar>
     </Grid>
 </Window>
