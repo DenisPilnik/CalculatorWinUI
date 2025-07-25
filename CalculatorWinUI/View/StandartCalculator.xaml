@@ -11,67 +11,90 @@
     <Page.Resources>
         <!-- Стиль кнопок калькулятора -->
         <Style x:Key="CalcButtonStyle" TargetType="Button">
-            <Setter Property="FontSize" Value="28"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Height" Value="52"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Height" Value="45"/>
             <Setter Property="Padding" Value="0"/>
-            <Setter Property="Width" Value="60"/>
+            <Setter Property="Width" Value="67"/>
         </Style>
     </Page.Resources>
 
-    <Grid x:Name="RootGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
+    <StackPanel x:Name="RootStack" 
+                Orientation="Vertical"
+                Spacing="2">
         <!-- Вивід -->
-        <TextBox x:Name="Display"
-                 Height="80"
-                 Margin="10"
+        <StackPanel Orientation="Horizontal"
+                    Spacing="60"
+                    Margin="10">
+            <Button Grid.Row="1"
+                    Grid.Column="0">
+                <FontIcon Glyph="&#xE700;" />
+            </Button>
+            <TextBlock Text="Standart" Style="{StaticResource SubtitleTextBlockStyle}" VerticalAlignment="Center"/>
+            <Button >
+                <FontIcon Glyph="&#xE81C;" />
+            </Button>
+        </StackPanel>
+        <TextBlock x:Name="PrevOperation"
+         Height="20"
+         Margin="0 0 16 0"
+         Text="0"
+         FontSize="14"
+         TextAlignment="Right"/>
+        <TextBlock x:Name="Display"
+                 Height="50"
+                 Margin="0 0 10 20"
+                 Text="0"
                  FontSize="36"
-                 TextAlignment="Right"
-                 IsReadOnly="True"/>
-
-        <!-- Сітка кнопок -->
-        <Grid Grid.Row="1" Margin="5" Padding="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <!-- Кнопки з єдиним стилем -->
-            <Button Content="7" Grid.Row="0" Grid.Column="0" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="8" Grid.Row="0" Grid.Column="1" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="9" Grid.Row="0" Grid.Column="2" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="/" Grid.Row="0" Grid.Column="3" Style="{StaticResource CalcButtonStyle}" />
-
-            <Button Content="4" Grid.Row="1" Grid.Column="0" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="5" Grid.Row="1" Grid.Column="1" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="6" Grid.Row="1" Grid.Column="2" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="*" Grid.Row="1" Grid.Column="3" Style="{StaticResource CalcButtonStyle}" />
-
-            <Button Content="1" Grid.Row="2" Grid.Column="0" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="2" Grid.Row="2" Grid.Column="1" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="3" Grid.Row="2" Grid.Column="2" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="-" Grid.Row="2" Grid.Column="3" Style="{StaticResource CalcButtonStyle}" />
-
-            <Button Content="0" Grid.Row="3" Grid.Column="0" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="." Grid.Row="3" Grid.Column="1" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="=" Grid.Row="3" Grid.Column="2" Style="{StaticResource CalcButtonStyle}" />
-            <Button Content="+" Grid.Row="3" Grid.Column="3" Style="{StaticResource CalcButtonStyle}" />
-
-            <Button Content="C" Grid.Row="4" Grid.ColumnSpan="4" Style="{StaticResource CalcButtonStyle}"
-                    Background="LightCoral" FontWeight="Bold"/>
-        </Grid>
-    </Grid>
+                 TextAlignment="Right"/>
+        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+            <Button Content="C"  Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="CE"  Style="{StaticResource CalcButtonStyle}"/>
+            <Button Width="140" Style="{StaticResource CalcButtonStyle}">
+                <FontIcon Glyph="&#xE750;" />
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+            <Button Content="1/x" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="x^2" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="Sqrt()" Style="{StaticResource CalcButtonStyle}"/>
+            <Button  Style="{StaticResource CalcButtonStyle}">
+                <FontIcon Glyph="&#xE94A;" />
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+            <Button Content="7" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="8" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="9" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Style="{StaticResource CalcButtonStyle}">
+                <FontIcon Glyph="&#xE947;" />
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+            <Button Content="4" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="5" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="6" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Style="{StaticResource CalcButtonStyle}">
+                <FontIcon Glyph="&#xE949;" />
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+            <Button Content="1" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="2" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="3" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Style="{StaticResource CalcButtonStyle}">
+                <FontIcon Glyph="&#xE948;" />
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Center">
+            <Button Style="{StaticResource CalcButtonStyle}">
+                <FontIcon Glyph="&#xE94D;" />
+            </Button>
+            <Button Content="0" Style="{StaticResource CalcButtonStyle}"/>
+            <Button Content="," Style="{StaticResource CalcButtonStyle}"/>
+            <Button Style="{StaticResource CalcButtonStyle}">
+                <FontIcon Glyph="&#xE94E;" />
+            </Button>
+        </StackPanel>
+    </StackPanel>
 </Page>
